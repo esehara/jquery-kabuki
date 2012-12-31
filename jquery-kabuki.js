@@ -101,18 +101,24 @@
             },
 
             _background_size: function(me, options) {
+                console.log("Debug >> background_size");
                 var background_url = $(me._element).css('background-image');
                 var url = background_url.replace('url(', '').replace(')', '').replace('"', '').replace("'", "");
                 var image = $('<img />');
                 image.hide();
-
-                image.bind('load', function() {
-                    var width = $(this).width();
+                var width = image.width();
+                if (width === 0) {
+                    image.bind('load', function() {
+                        var width = $(this).width();
+                        me._after_infinity_scroll(me, options, width);
+                    }).attr('src', url);
+                } else {
+                    image.attr('src', url);
+                    width = null;
                     me._after_infinity_scroll(me, options, width);
-                });
+                }
 
                 $('body').append(image);
-                image.attr('src', url);
             },
 
             _pre_infinity_scroll: function(options) {
@@ -124,12 +130,18 @@
             },
 
             _after_infinity_scroll: function(me, options, width) {
-                var current = 0;
+                var current;
+                if (typeof current === "null") {
+                    current = 0;
+                } else {
+                    current = width * -3; 
+                }
+
                 setInterval(function() {
-                    current ++;
+                    current --;
                     $(me._element).css("backgroundPosition", current + "px 0");
-                    if (current > width) {
-                        current = 0;
+                    if (current < 0 && current > (width * -2)) {
+                        current = width;
                     }
                 }, options.interval);
             },
