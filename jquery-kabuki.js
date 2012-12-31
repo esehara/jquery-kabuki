@@ -117,7 +117,9 @@
 
             _pre_infinity_scroll: function(options) {
                 var me = this;
-                options.speed = this._if_null(options.speed, 1);
+                var defaults = {'speed': 10};
+
+                options = this._initialize();
                 this._background_size(me, options);
             },
 
