@@ -76,6 +76,7 @@
                     'max': 72,
                     'min': 8,
                     'start': 16,
+                    'rebound': true,
                     'reverse': false};
                 options = this._initialize(options, defaults);
 
@@ -87,13 +88,15 @@
                     } else {
                         _status.start ++;
                     }
+                    
+                    if (_status.rebound) {
+                        if (_status.start > _status.max) {
+                            _status.reverse = true;
+                        }
 
-                    if (_status.start > _status.max) {
-                        _status.reverse = true;
-                    }
-
-                    if (_status.start < _status.min) {
-                        _status.reverse = false;
+                        if (_status.start < _status.min) {
+                            _status.reverse = false;
+                        }
                     }
                     _css_config[_status.css] = _status.start;
                     me._element.css(_css_config); 
