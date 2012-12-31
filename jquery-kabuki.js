@@ -101,7 +101,6 @@
             },
 
             _background_size: function(me, options) {
-                console.log("Debug >> background_size");
                 var background_url = $(me._element).css('background-image');
                 var url = background_url.replace('url(', '').replace(')', '').replace('"', '').replace("'", "");
                 var image = $('<img />');
@@ -123,9 +122,11 @@
 
             _pre_infinity_scroll: function(options) {
                 var me = this;
-                var defaults = {'speed': 10};
+                var defaults = {
+                    'speed': 10,
+                    'interval': 10};
 
-                options = this._initialize();
+                options = this._initialize(options, defaults);
                 this._background_size(me, options);
             },
 
@@ -136,7 +137,6 @@
                 } else {
                     current = width * -3; 
                 }
-
                 setInterval(function() {
                     current --;
                     $(me._element).css("backgroundPosition", current + "px 0");
