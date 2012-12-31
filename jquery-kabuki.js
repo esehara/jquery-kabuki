@@ -98,7 +98,43 @@
                     _css_config[_status.css] = _status.start;
                     me._element.css(_css_config); 
                 }, options.interval);
-            }
+            },
+
+            _background_size: function(me, options) {
+                var background_url = $(me._element).css('background-image');
+                var url = background_url.replace('url(', '').replace(')', '').replace('"', '').replace("'", "");
+                var image = $('<img />');
+                image.hide();
+
+                image.bind('load', function() {
+                    var width = $(this).width();
+                    me._after_infinity_scroll(me, options, width);
+                });
+
+                $('body').append(image);
+                image.attr('src', url);
+            },
+
+            _pre_infinity_scroll: function(options) {
+                var me = this;
+                options.speed = this._if_null(options.speed, 1);
+                this._background_size(me, options);
+            },
+
+            _after_infinity_scroll: function(me, options, width) {
+                var current = 0;
+                setInterval(function() {
+                    current ++;
+                    $(me._element).css("backgroundPosition", current + "px 0");
+                    if (current > width) {
+                        current = 0;
+                    }
+                }, options.interval);
+            },
+
+            infinity_scroll: function(options) {
+                this._pre_infinity_scroll(options);
+            },
 
         };
     return _kabuki;

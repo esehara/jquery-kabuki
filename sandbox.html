@@ -10,7 +10,8 @@
             $('#kabuki-earthquake').kabuki().earthquake({'css': 'padding-left'});
             $('#kabuki-rainbow').kabuki().rainbow();
             $('#kabuki-earthquake-and-rainbow').kabuki().earthquake({'css': 'padding-left'}).rainbow();
-            $('#kabuki-bound').kabuki().bound({'interval': 25});    
+            $('#kabuki-bound').kabuki().bound({'interval': 25});
+            $('#infinity_scroll').kabuki().infinity_scroll({'speed': 10});
         });
     </script>
 </head>
@@ -25,6 +26,12 @@
     <h2>Kabuki().earthquake().rainbow()</h2>
     <p id="kabuki-earthquake-and-rainbow">kabuki</p>
     <h2>Kabuki().bound()</h2>
-    <p id="kabuki-bound">Bound!!</p>
+    <div style="height: 200px">
+        <span id="kabuki-bound" >Bound!!</span>
+    </div>
+    <h2>Kabuki().inifinity_scroll()</h2>
+    <div id="infinity_scroll" style="background-image: url('lib/robot.png'); height: 200px">
+        
+    </div>
 </body>
 </html>
