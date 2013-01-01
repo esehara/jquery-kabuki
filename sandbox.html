@@ -12,6 +12,14 @@
             $('#kabuki-earthquake-and-rainbow').kabuki().earthquake({'css': 'padding-left'}).rainbow();
             $('#kabuki-bound').kabuki().bound({'interval': 25});
             $('#infinity_scroll').kabuki().infinity_scroll({'speed': 10});
+            var click_stop_test = $('#kabuki-click-stop').kabuki().earthquake();
+            $('#kabuki-click-stop').click(function() {
+                click_stop_test.stop();
+                });
+            var click_start_test = $('#kabuki-click-start').kabuki().bound({'auto':false, 'interval': 25});
+            $('#kabuki-click-start').click(function() {
+                click_start_test.start();
+                });
         });
     </script>
 </head>
@@ -30,8 +38,12 @@
         <span id="kabuki-bound" >Bound!!</span>
     </div>
     <h2>Kabuki().inifinity_scroll()</h2>
-    <div id="infinity_scroll" style="background-image: url('lib/robot.png'); height: 200px">
-        
+    <div id="infinity_scroll" style="background-image: url('lib/robot.png'); height: 200px; min-height: 200px;"></div>
+    <h2>Manager</h2>
+    <h2>kabuki().stop()</h2>
+    <div id="kabuki-click-stop">kabuki</p>
     </div>
+    <h2>kabuki().start()</h2>
+    <div id="kabuki-click-start">kabuki</div>
 </body>
 </html>

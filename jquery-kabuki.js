@@ -37,6 +37,7 @@
                 var defaults = {
                     'css': 'color',
                     'interval': 100,
+                    'auto': true
                 };
                 options = this._initialize(options, defaults);
 
@@ -49,23 +50,44 @@
                 return me;
             },
 
+            start: function() {
+                if (typeof this._setinterval !== "undefined") {
+                    clearInterval(this._setinterval);
+                }
+                this._setinterval = setInterval(this._run, this._options.interval);
+            },
+
+            stop: function() {
+                if (typeof this._setinterval !== "undefined") {
+                    clearInterval(this._setinterval);
+                }
+            },
+
+            _runner: function(me, options, func) {
+                me._options = options;
+                me._run = func;
+                if (options.auto) {
+                    me.start();
+                }
+                return me;
+            },
+
             earthquake: function(options) {
                 var me = this;
+                
                 var defaults = {
                     'css': 'padding',
                     'interval': 100,
                     'max': 100,
-                    'min': 0
+                    'min': 0,
+                    'auto': true
                 };
                 options = this._initialize(options, defaults);
-
-                setInterval(function(){
+                return this._runner(me, options, function(){
                     var _css_config = {};
                     _css_config[options.css] = me._randint({max: options.max, min: options.min});
                     me._element.css(_css_config);
-                }, options.interval);
-
-                return me;
+                });
             },
 
             bound: function(options) {
@@ -77,10 +99,11 @@
                     'min': 8,
                     'start': 16,
                     'rebound': true,
-                    'reverse': false};
+                    'reverse': false,
+                    'auto': true};
                 options = this._initialize(options, defaults);
-
-                setInterval(function() {
+                
+                return this._runner(me, options, function() {
                     var _css_config = {};
                     var _status = options;
                     if (_status.reverse) { 
@@ -100,7 +123,7 @@
                     }
                     _css_config[_status.css] = _status.start;
                     me._element.css(_css_config); 
-                }, options.interval);
+                });
             },
 
             _background_size: function(me, options) {
@@ -140,13 +163,13 @@
                 } else {
                     current = width * -3; 
                 }
-                setInterval(function() {
+                this._runner(me, options, function() {
                     current --;
                     $(me._element).css("backgroundPosition", current + "px 0");
                     if (current < 0 && current > (width * -2)) {
                         current = width;
                     }
-                }, options.interval);
+                });
             },
 
             infinity_scroll: function(options) {
