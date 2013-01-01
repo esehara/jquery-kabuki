@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="lib/jquery-1.8.3.min.js"></script>
+<<<<<<< HEAD
+    <script type="text/javascript" src="javascripts/jquery-kabuki/jquery-kabuki.js"></script>
+=======
+    <script type="text/javascript" src="jquery-kabuki.js"></script>
+>>>>>>> fcc7fe538c1765b2749a377985e2b90559dba926
+    <script type="text/javascript">
+    $(function(){    
+            $('#kabuki-earthquake').kabuki().earthquake({'css': 'padding-left'});
+            $('#kabuki-rainbow').kabuki().rainbow();
+            $('#kabuki-earthquake-and-rainbow').kabuki().earthquake({'css': 'padding-left'}).rainbow();
+            $('#kabuki-bound').kabuki().bound({'interval': 25});
+<<<<<<< HEAD
+            $('#infinity_scroll').kabuki().infinity_scroll();
+=======
+            $('#infinity_scroll').kabuki().infinity_scroll({'speed': 10});
+>>>>>>> fcc7fe538c1765b2749a377985e2b90559dba926
+        });
+    </script>
+</head>
+<body>
+    <h1>jquery-kabuki.js</h1>
+    <h2>What's kabuki?</h2>
+    <p> Kabuki is Japanese Traditional Art.
+    <h2>Kabuki().earthquake()</h2>
+    <p id="kabuki-earthquake">kabuki</p>
+    <h2>Kabuki().rainbow()</h2>
+    <p id="kabuki-rainbow">kabuki</p>
+    <h2>Kabuki().earthquake().rainbow()</h2>
+    <p id="kabuki-earthquake-and-rainbow">kabuki</p>
+    <h2>Kabuki().bound()</h2>
+    <div style="height: 200px">
+        <span id="kabuki-bound" >Bound!!</span>
+    </div>
+    <h2>Kabuki().inifinity_scroll()</h2>
+    <div id="infinity_scroll" style="background-image: url('lib/robot.png'); height: 200px">
+        
+    </div>
+</body>
+</html>
