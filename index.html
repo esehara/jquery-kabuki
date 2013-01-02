@@ -25,7 +25,14 @@
                 $('#bound-image').kabuki().bound(bounds_height);
                 $('#header_wrap').kabuki().infinity_scroll({'interval': 20});
                 $('#infinity-scroll').kabuki().infinity_scroll({'interval': 20});
-        });
+                var images = [
+                    'images/octocat.png',
+                    'images/octocat2.png',
+                    'images/octocat3.png',
+                    'images/octocat4.png'];
+
+                $('#kabuki-change-image').kabuki().image_change({'interval': 200, 'images': images});
+            });
     </script>
     </head>
 
@@ -77,7 +84,8 @@
                 </li>    
             </ul>
         </li>
-        <li><a href="#method-infinity-scroll">kabuki.infinity_scroll()</a></li>
+        <li><a href="#method-infinity-scroll">kabuki().infinity_scroll()</a></li>
+        <li><a href="#method-image-change">kabuki().image_change()</a></li>
     </ul>
     </li>
     <li><h3>Manage</h3>
@@ -123,9 +131,16 @@
 </h3>
 <div id="infinity-scroll" style="background-image:url('images/octocat.png'); min-height: 512px;">
 </div>
+<h3>
+    <a name="method-image-change">
+        kabuki().image_change()
+    </a>
+</h3>
+<div id="change-image">
+    <img id="kabuki-change-image"/>
+</div>
 </section>
 </div>
-
 <div style="position:fixed; bottom: 0px; right: 0px;background-color: #CCC; padding: 12px;">
     <a href="#Index">Index</a>
 </div>
