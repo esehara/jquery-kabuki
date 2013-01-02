@@ -196,7 +196,8 @@
                 } else {
                     current = width * -3; 
                 }
-                this._runner(me, options, function() {
+                
+                return this._runner(me, options, function() {
                     current --;
                     $(me._element).css("backgroundPosition", current + "px 0");
                     if (current < 0 && current > (width * -2)) {
