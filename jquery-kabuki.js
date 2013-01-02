@@ -150,7 +150,8 @@
                 var me = this;
                 var defaults = {
                     'speed': 10,
-                    'interval': 10};
+                    'interval': 10,
+                    'auto': true};
 
                 options = this._initialize(options, defaults);
                 this._background_size(me, options);
