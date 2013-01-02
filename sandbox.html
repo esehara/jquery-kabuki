@@ -20,6 +20,9 @@
             $('#kabuki-click-start').click(function() {
                 click_start_test.start();
                 });
+            $('#kabuki-image-changer').kabuki().image_change({
+                'interval': 100,
+                'images': ['lib/robot.png', 'lib/javascript.png']});
         });
     </script>
 </head>
@@ -39,6 +42,10 @@
     </div>
     <h2>Kabuki().inifinity_scroll()</h2>
     <div id="infinity_scroll" style="background-image: url('lib/robot.png'); height: 200px; min-height: 200px;"></div>
+    <h2>Kabuki().image_change()</h2>
+    <div id="image-change">
+        <img id="kabuki-image-changer" />
+    </div>
     <h2>Manager</h2>
     <h2>kabuki().stop()</h2>
     <div id="kabuki-click-stop">kabuki</p>

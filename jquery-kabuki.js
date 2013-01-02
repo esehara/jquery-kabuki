@@ -72,6 +72,31 @@
                 return me;
             },
 
+            image_change: function(options) {
+                var me = this;
+
+                var defaults = {
+                    'target': 'image',
+                    'interval': 50,
+                    'auto': true,
+                    'random': false
+                };
+                options = this._initialize(options, defaults);
+                me._images = options.images;
+                me._image_length = options.images.length;
+                me._pointer = 0;
+                return this._runner(me, options, function() {
+                    if (!me._options.random) {
+                        me._pointer ++;
+                        if (me._pointer >= me._image_length) {
+                            me._pointer = 0;
+                        }
+                    }
+                    me._element.attr({'src': me._images[me._pointer]});
+                });
+
+            },
+
             earthquake: function(options) {
                 var me = this;
                 
