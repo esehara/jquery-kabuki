@@ -209,6 +209,9 @@
                 this._pre_infinity_scroll(options);
             },
 
+            exit: function() {
+                return this._element;
+            }
         };
     return _kabuki;
     };
