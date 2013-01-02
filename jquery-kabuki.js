@@ -97,7 +97,7 @@
 
                     if (me._options.target === 'image') {
                         me._element.attr({'src': me._images[me._pointer]});
-                    } else if (me.options.target === 'background') {
+                    } else if (me._options.target === 'background') {
                         me._element.css('background-image', 'url(' + me._images[me._pointer] + ')');
                     }
                 });
