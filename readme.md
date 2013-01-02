@@ -16,8 +16,12 @@ Get Start
 
 Method 
 ------
-
-* earthquake()
-* rainbow()
-* bownd()
-
+* Feature
+    * earthquake()
+    * rainbow()
+    * bound()
+    * image_change()
+* Manage
+    * start()
+    * stop()
+    * exit()
