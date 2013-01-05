@@ -85,7 +85,7 @@
                 me._images = options.images;
                 me._image_length = options.images.length;
                 me._pointer = 0;
-                return this._runner(me, options, function() {
+                var return_me = this._runner(me, options, function() {
                     if (!me._options.random) {
                         me._pointer ++;
                         if (me._pointer >= me._image_length) {
@@ -101,6 +101,8 @@
                         me._element.css('background-image', 'url(' + me._images[me._pointer] + ')');
                     }
                 });
+                return_me._run(); 
+                return return_me;
 
             },
 
@@ -183,7 +185,8 @@
                 var defaults = {
                     'speed': 10,
                     'interval': 10,
-                    'auto': true};
+                    'auto': true,
+                    'blink': false};
 
                 options = this._initialize(options, defaults);
                 this._background_size(me, options);
@@ -191,6 +194,8 @@
 
             _after_infinity_scroll: function(me, options, width) {
                 var current;
+                var set_current;
+                var blinking_on = false;
                 if (typeof current === "null") {
                     current = 0;
                 } else {
@@ -199,10 +204,19 @@
                 
                 return this._runner(me, options, function() {
                     current --;
-                    $(me._element).css("backgroundPosition", current + "px 0");
+                    if (me._options.blink && blinking_on) {
+                        set_current = 0;
+                    } else {
+                        set_current = current;
+                    }
+
+                    $(me._element).css("backgroundPosition", set_current + "px 0");
                     if (current < 0 && current > (width * -2)) {
                         current = width;
                     }
+
+                    blinking_on = !(blinking_on);
+
                 });
             },
 

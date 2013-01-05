@@ -12,6 +12,7 @@
             $('#kabuki-earthquake-and-rainbow').kabuki().earthquake({'css': 'padding-left'}).rainbow();
             $('#kabuki-bound').kabuki().bound({'interval': 25});
             $('#infinity_scroll').kabuki().infinity_scroll({'speed': 10});
+            $('#infinity_scroll_blinking').kabuki().infinity_scroll({'blink': true, 'speed': 10});
             var click_stop_test = $('#kabuki-click-stop').kabuki().earthquake();
             $('#kabuki-click-stop').click(function() {
                 click_stop_test.stop();
@@ -46,6 +47,8 @@
     </div>
     <h2>Kabuki().inifinity_scroll()</h2>
     <div id="infinity_scroll" style="background-image: url('lib/robot.png'); height: 200px; min-height: 200px;"></div>
+    <h2>Kabuki().inifinity_scroll()</h2>
+    <div id="infinity_scroll_blinking" style="background-image: url('lib/robot.png'); height: 200px; min-height: 200px;"></div>
     <h2>Kabuki().image_change()</h2>
     <div id="image-change">
         <img id="kabuki-image-changer" />
