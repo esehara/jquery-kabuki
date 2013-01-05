@@ -28,6 +28,16 @@
                 'interval': 100,
                 'random': true,
                 'images': ['lib/robot.png', 'lib/javascript.png']});
+            $('#kabuki-image-change-background').kabuki().image_change({
+                'interval': 100,
+                'target': 'background' ,
+                'images': ['lib/robot.png', 'lib/javascript.png']});
+            
+            $('#kabuki-image-change-background-and-image-change').kabuki().image_change({
+                'interval': 100,
+                'target': 'background' ,
+                'images': ['lib/robot.png', 'lib/javascript.png']});
+            $('#kabuki-image-change-background-and-image-change').kabuki().infinity_scroll();
         });
     </script>
 </head>
@@ -50,13 +60,21 @@
     <h2>Kabuki().inifinity_scroll()</h2>
     <div id="infinity_scroll_blinking" style="background-image: url('lib/robot.png'); height: 200px; min-height: 200px;"></div>
     <h2>Kabuki().image_change()</h2>
-    <div id="image-change">
+    <div id="image-change" style="min-height: 512px">
         <img id="kabuki-image-changer" />
     </div>
-    <h2>Kabuki().image_change()</h2>
-    <div id="image-change">
+    <h2>Kabuki().image_change({random:true})</h2>
+    <div id="image-change" style="min-height: 512px">
         <img id="kabuki-image-changer-random" />
     </div>
+    <h2>Kabuki().image_change({target: 'background')</h2>
+    <div id="kabuki-image-change-background" style="min-height: 512px">
+    </div>
+    
+    <h2>Kabuki().image_change({target: 'background')</h2>
+    <div id="kabuki-image-change-background-and-image-change" style="min-height: 512px">
+    </div>
+
     <h2>Manager</h2>
     <h2>kabuki().stop()</h2>
     <div id="kabuki-click-stop">kabuki</p>
