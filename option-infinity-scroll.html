@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Jquery-kabuki : jQuery Plugin for Kabuki." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Jquery-kabuki</title>
+    <script type="text/javascript" src="javascripts/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="master/jquery-kabuki.js"></script>
+    <script type="text/javascript">
+        $(function() {
+                $('#infinity_scroll_blink').kabuki().infinity_scroll({'interval': 20, 'blink': true});
+                $('#header_wrap').kabuki().infinity_scroll({'interval': 20});
+        });
+    </script>
+    </head>
+
+    <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/esehara/jquery-kabuki">View on GitHub</a>
+
+          <h1 id="project_title">Jquery-kabuki</h1>
+          <h2 id="project_tagline">jQuery Plugin for Kabuki.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/esehara/jquery-kabuki/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/esehara/jquery-kabuki/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+      <p> <a href="index.html">Index</a> / Kabuki().infinity_scroll() option </p>
+      <h2> Kabuki().infinity_scroll() option</h2>
+      <div id="infinity_scroll">
+        <h3>infinity_scroll({blink:true})</h3>
+        <div id="infinity_scroll_blink" style="min-height: 512px; background-image:url('images/octocat.png');">
+        </div>
+    </div>
+      <p> <a href="index.html">Index</a> / Kabuki().infinity_scroll() option </p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Jquery-kabuki maintained by <a href="https://github.com/esehara">esehara</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
